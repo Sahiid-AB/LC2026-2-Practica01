@@ -27,6 +27,11 @@ perimeter (Rectangle base altura) = (2 * base) + (2 * altura)
 perimeter (Triangle lado) = (lado * 3)
 perimeter (Trapeze base_M base_m altura) = base_M + base_m + (2*lado)
                                                 where
+                                                -- Funciones/Variables auxiliares para el Ejercicio 1 (Trapecio)
+                                                -- Calculan el lado inclinado asumiendo un trapecio isósceles usando el Teorema de Pitágoras.
+                                                -- Restamos las bases para obtener la base de 2 triangulos
+                                                -- Dividimos entre 2 para calcular la hipotenusa de uno sol
+                                                -- Aplicamos teorema de Pitagóras lado = sqrt(a^2+b^2)
                                                 baseTriangulo = (base_M - base_m) / 2
                                                 lado = sqrt ((baseTriangulo *baseTriangulo) + (altura * altura))
 
@@ -69,6 +74,9 @@ houseCost padre = area (houseShape padre) + (perimeter (houseShape padre) * 2.5)
 timeToWork :: Haskellium -> Float
 timeToWork casa = distancia / velocidad 
                     where
+                    -- Funciones/Variables auxiliares para el Ejercicio 3
+                    -- 'distancia' obtiene la distancia de la casa al origen.
+                    -- 'velocidad' determina si viaja a 30 o 70 dependiendo de la distancia.
                     distancia = from0 (location casa)
                     velocidad = if distancia < 300 then 30 else 70
                     
@@ -78,6 +86,8 @@ timeToWork casa = distancia / velocidad
 palindromo :: (Eq a) => [a] -> Bool
 palindromo xs =  xs == invertir xs 
                     where   
+                    -- Función auxiliar para el Ejercicio 1 de Listas.
+                    -- Recibe una lista y devuelve la misma lista con sus elementos en orden inverso.
                     invertir [] = []
                     invertir (x:ys) = invertir ys ++ [x] 
 
@@ -92,6 +102,8 @@ conjuntoPotencia :: [a] -> [[a]]
 conjuntoPotencia [] = [[]]
 conjuntoPotencia (x:xs) = [ x:ys | ys <- resto ] ++ resto
                             where 
+                            -- Variable/Llamada auxiliar para el Ejercicio 3 de Listas.
+                            -- 'resto' almacena el conjunto potencia del resto de la lista para evitar recalcularlo.
                             resto = conjuntoPotencia xs 
 
 --ARBOLES
